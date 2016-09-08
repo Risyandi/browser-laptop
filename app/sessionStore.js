@@ -409,6 +409,7 @@ module.exports.defaultAppState = () => {
         guid: [],
         timestamp: 0
       }
-    }
+    },
+    menubar: {}
   }
 }

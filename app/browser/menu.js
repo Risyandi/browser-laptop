@@ -578,6 +578,8 @@ const createMenu = () => {
     })
   }
 
+  appActions.setMenubarTemplate(Immutable.fromJS(template))
+
   let oldMenu = appMenu
   appMenu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(appMenu)
@@ -634,6 +636,12 @@ const doAction = (action) => {
           createMenu()
         })
       }
+      break
+    case windowConstants.WINDOW_CLICK_MENUBAR_ITEM:
+      appDispatcher.waitFor([appStore.dispatchToken], () => {
+        const clickedMenuItem = menuUtil.getMenuItem(appMenu, action.label)
+        if (clickedMenuItem) clickedMenuItem.click()
+      })
       break
     default:
   }

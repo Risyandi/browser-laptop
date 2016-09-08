@@ -195,6 +195,9 @@ AppStore
     newtab: {
       gridLayout: string // 'small', 'medium', 'large'
     }
+  },
+  menubar: {
+    template: object // windows only: template object with Menubar control
   }
 }
 ```
@@ -343,6 +346,9 @@ WindowStore
     },
     releaseNotes: {
       isVisible: boolean, // Whether or not to show release notes
+    },
+    menubar: {
+      isVisible: boolean // windows only: true if Menubar control is visible
     }
   },
   searchDetail: {

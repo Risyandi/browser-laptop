@@ -637,6 +637,9 @@ const handleAppAction = (action) => {
     case WindowConstants.WINDOW_CLOSE_FRAME:
       appState = tabState.closeTab(appState, action.frameProps.get('tabId'))
       break
+    case AppConstants.APP_SET_MENUBAR_TEMPLATE:
+      appState = appState.setIn(['menu', 'template'], action.menubarTemplate)
+      break
     default:
   }
 
